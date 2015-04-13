@@ -1,0 +1,11 @@
+{
+  "name": "list-files",
+  "version": "1.0.0",
+  "description": "Finds all files in a directory and passes them into an array.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "Emil Johansson <emiljohansson.se@gmail.com>",
+  "license": "MIT"
+}
