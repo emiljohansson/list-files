@@ -6,6 +6,15 @@
   "scripts": {
     "test": "node test.js"
   },
-  "author": "Emil Johansson <emiljohansson.se@gmail.com>",
+  "author": {
+    "name": "Emil Johansson",
+    "email": "emiljohansson.se@gmail.com>",
+    "url": "emiljohansson.se"
+  },
+  "keywords": [
+    "files",
+    "list",
+    "index"
+  ],
   "license": "MIT"
 }
