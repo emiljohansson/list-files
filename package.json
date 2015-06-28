@@ -1,6 +1,6 @@
 {
   "name": "list-files",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Finds all files in a directory and passes them into an array.",
   "main": "index.js",
   "scripts": {
