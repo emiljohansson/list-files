@@ -20,5 +20,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/emiljohansson/list-files.git"
+  },
+  "devDependencies": {
+    "tape": "^4.0.0"
   }
 }
