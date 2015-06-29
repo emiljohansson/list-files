@@ -4,7 +4,9 @@
   "description": "Finds all files in a directory and passes them into an array.",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "coverage": "node node_modules/istanbul/lib/cli.js cover test.js -x test.js",
+    "coveralls": "npm run-script coverage && node node_modules/.bin/coveralls < coverage/lcov.info"
   },
   "author": {
     "name": "Emil Johansson",
@@ -22,6 +24,8 @@
     "url": "https://github.com/emiljohansson/list-files.git"
   },
   "devDependencies": {
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.17",
     "tape": "^4.0.0"
   }
 }

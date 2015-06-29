@@ -1,4 +1,4 @@
-#list-files [![Build Status](https://travis-ci.org/emiljohansson/list-files.svg?branch=master)](https://travis-ci.org/emiljohansson/list-files)
+# list-files [![Build Status](https://travis-ci.org/emiljohansson/list-files.svg?branch=master)](https://travis-ci.org/emiljohansson/list-files) [![Coverage Status](https://img.shields.io/coveralls/emiljohansson/list-files/master.svg)](https://coveralls.io/r/emiljohansson/list-files?branch=master)
 
 > Finds all files in a directory and passes them into an array.
 > Can specify the name of sub-directory and match a file extension.
