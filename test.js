@@ -65,3 +65,13 @@ test('should return files matching file prefix in specific dir', function(t) {
     });
     t.end();
 });
+
+test('should pass an error if dir not found', function(t) {
+    find(function(result) {
+        t.equal(typeof result.error, 'string');
+        t.equal(result.error, 'find: ./baddir: No such file or directory\n');
+    }, {
+        dir: 'baddir'
+    });
+    t.end();
+});

@@ -19,11 +19,10 @@ module.exports = function(callback, argv) {
             var result = stdout.split('\n').filter(function(str) {
                 return str !== "";
             });
-            if (stderr !== "") {
-                console.log('stderr: ' + stderr);
-            }
             if (error !== null) {
-                console.log('exec error: ' + error);
+                callback({
+                    error: stderr
+                });
                 return;
             }
             callback(result);
