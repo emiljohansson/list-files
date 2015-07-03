@@ -78,3 +78,16 @@ test('should pass an error if dir not found', function(t) {
     });
     t.end();
 });
+
+test('should exclude dir', function(t) {
+    find(function(result) {
+        t.equal(Array.isArray(result), true);
+        var matches = result.filter(function(file) {
+            return file.indexOf('/node_modules/') > -1;
+        }).length;
+        t.equal(matches, 0);
+    }, {
+        exclude: 'node_modules'
+    });
+    t.end();
+});

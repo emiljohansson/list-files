@@ -36,7 +36,7 @@ Called once the search is complete.
 
 Type: `object`
 
-Optional options. Possible options 'dir' and 'name'.
+Optional options. Possible options 'dir', 'name' and 'exclude'.
 
 ## License
 

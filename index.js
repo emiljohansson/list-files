@@ -13,6 +13,9 @@ module.exports = function(callback, argv) {
     if (typeof argv.name === 'string') {
         command += ' -name "*.'+argv.name+'"';
     }
+    if (typeof argv.exclude === 'string') {
+        command += ' -not -path "./'+argv.exclude+'/*"';
+    }
 
     exec(command,
         function(error, stdout, stderr) {
