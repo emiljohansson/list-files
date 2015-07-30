@@ -1,21 +1,11 @@
 "use strict";
 
 var exec = require('child_process').exec;
+var commandMaker = process.platform === 'win32' ?
+    require('./make-command-win') : require('./make-command-unix');
 
 module.exports = function(callback, argv) {
-    var command = 'find .';
-    if (typeof argv === 'undefined') {
-        argv = {};
-    }
-    if (typeof argv.dir === 'string') {
-        command += '/' + argv.dir;
-    }
-    if (typeof argv.name === 'string') {
-        command += ' -name "*.'+argv.name+'"';
-    }
-    if (typeof argv.exclude === 'string') {
-        command += ' -not -path "./'+argv.exclude+'/*"';
-    }
+    var command = commandMaker(argv);
 
     exec(command,
         function(error, stdout, stderr) {
