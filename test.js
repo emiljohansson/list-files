@@ -2,9 +2,85 @@
 
 var test = require('tape');
 var find = require('./');
+var makeCommandUnix = require('./make-command-unix');
+var makeCommandWin = require('./make-command-win');
 
 test('should exist', function(t) {
     t.equal(typeof find, 'function');
+    t.equal(typeof makeCommandUnix, 'function');
+    t.equal(typeof makeCommandWin, 'function');
+    t.end();
+});
+
+test('Make Commands', function(t) {
+    t.test('UNIX', function(t) {
+        t.test('should find all as default', function(t) {
+            t.equal(makeCommandUnix(), 'find .');
+            t.end();
+        });
+        t.test('should append specified dir', function(t) {
+            t.equal(makeCommandUnix({
+                dir: 'path/to/dir'
+            }), 'find ./path/to/dir');
+            t.end();
+        });
+        t.test('should append specified name (extention)', function(t) {
+            t.equal(makeCommandUnix({
+                name: 'js'
+            }), 'find . -name "*.js"');
+            t.end();
+        });
+        t.test('should append specified exclude path', function(t) {
+            t.equal(makeCommandUnix({
+                exclude: 'path/to/exclude/dir'
+            }), 'find . -not -path "./path/to/exclude/dir/*"');
+            t.end();
+        });
+        t.test('should append all arguments', function(t) {
+            t.equal(makeCommandUnix({
+                dir: 'path/to/dir',
+                name: 'js',
+                exclude: 'path/to/exclude/dir'
+            }), 'find ./path/to/dir -name "*.js" -not -path "./path/to/exclude/dir/*"');
+            t.end();
+        });
+        t.end();
+    });
+
+    t.test('Windows', function(t) {
+        t.test('should find all as default', function(t) {
+            t.equal(makeCommandWin(), 'dir . /b/s');
+            t.end();
+        });
+        t.test('should append specified dir', function(t) {
+            t.equal(makeCommandWin({
+                dir: 'path/to/dir'
+            }), 'dir .\\path\\to\\dir /b/s');
+            t.end();
+        });
+        t.test('should append specified name (extention)', function(t) {
+            t.equal(makeCommandWin({
+                name: 'js'
+            }), 'dir .\\*.js /b/s');
+            t.end();
+        });
+        // t.test('should append specified exclude path', function(t) {
+        //     t.equal(makeCommandWin({
+        //         exclude: 'path/to/exclude/dir'
+        //     }), 'dir . | findstr /v /i "\.txt$" /b/s');
+        //     t.end();
+        // });
+        t.test('should append all arguments', function(t) {
+            t.equal(makeCommandWin({
+                dir: 'path/to/dir',
+                name: 'js'
+                // exclude: 'path/to/exclude/dir'
+            }), 'dir .\\path\\to\\dir\\*.js /b/s');
+            t.end();
+        });
+        t.end();
+    });
+
     t.end();
 });
 
