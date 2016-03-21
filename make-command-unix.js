@@ -9,7 +9,7 @@ function makeCommandUnix(argv) {
         command += '.';
     }
     if (typeof argv.dir === 'string') {
-        command += '/' + argv.dir;
+        command += '/' + argv.dir.replace(/ /g, '\\ ');
     }
     if (typeof argv.name === 'string') {
         command += ' -name "*.' + argv.name + '"';

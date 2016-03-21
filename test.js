@@ -47,8 +47,14 @@ test('Make Commands', function(t) {
         t.test('should be absolute path', function(t) {
             t.equal(makeCommandUnix({
                 dir: 'path/to/dir',
-                isAbsolutePath: true,
+                isAbsolutePath: true
             }), 'find /path/to/dir');
+            t.end();
+        });
+        t.test('should replace spaces in path', function(t) {
+            t.equal(makeCommandUnix({
+                dir: 'path/to my/dir'
+            }), 'find ./path/to\\ my/dir');
             t.end();
         });
         t.end();
@@ -88,7 +94,7 @@ test('Make Commands', function(t) {
         t.test('should be absolute path', function(t) {
             t.equal(makeCommandWin({
                 dir: 'path/to/dir',
-                isAbsolutePath: true,
+                isAbsolutePath: true
             }), 'dir \\path\\to\\dir /b/s');
             t.end();
         });
