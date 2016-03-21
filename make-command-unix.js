@@ -1,9 +1,12 @@
 "use strict";
 
 function makeCommandUnix(argv) {
-    var command = 'find .';
+    var command = 'find ';
     if (typeof argv === 'undefined') {
         argv = {};
+    }
+    if (argv.isAbsolutePath !== true) {
+        command += '.';
     }
     if (typeof argv.dir === 'string') {
         command += '/' + argv.dir;

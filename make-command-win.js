@@ -1,9 +1,12 @@
 "use strict";
 
 function makeCommandWin(argv) {
-    var command = 'dir .';
+    var command = 'dir ';
     if (typeof argv === 'undefined') {
         argv = {};
+    }
+    if (argv.isAbsolutePath !== true) {
+        command += '.';
     }
     if (typeof argv.dir === 'string') {
         command += '/' + argv.dir;

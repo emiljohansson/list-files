@@ -44,6 +44,13 @@ test('Make Commands', function(t) {
             }), 'find ./path/to/dir -name "*.js" -not -path "./path/to/exclude/dir/*"');
             t.end();
         });
+        t.test('should be absolute path', function(t) {
+            t.equal(makeCommandUnix({
+                dir: 'path/to/dir',
+                isAbsolutePath: true,
+            }), 'find /path/to/dir');
+            t.end();
+        });
         t.end();
     });
 
@@ -76,6 +83,13 @@ test('Make Commands', function(t) {
                 name: 'js'
                 // exclude: 'path/to/exclude/dir'
             }), 'dir .\\path\\to\\dir\\*.js /b/s');
+            t.end();
+        });
+        t.test('should be absolute path', function(t) {
+            t.equal(makeCommandWin({
+                dir: 'path/to/dir',
+                isAbsolutePath: true,
+            }), 'dir \\path\\to\\dir /b/s');
             t.end();
         });
         t.end();
