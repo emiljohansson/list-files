@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var exec = require('child_process').exec;
 var commandMaker = process.platform === 'win32' ?
@@ -10,7 +10,7 @@ module.exports = function(callback, argv) {
     exec(command,
         function(error, stdout, stderr) {
             var result = stdout.split('\n').filter(function(str) {
-                return str !== "";
+                return str !== '';
             });
             if (error !== null) {
                 callback({

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function makeCommandUnix(argv) {
     var command = 'find ';

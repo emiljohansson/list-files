@@ -119,6 +119,8 @@ test('should return files from current dir and sub dirs', function(t) {
         ].forEach(function(match) {
             t.assert(result.indexOf(match) > -1);
         });
+    }, {
+        exclude: 'node_modules'
     });
     t.end();
 });
