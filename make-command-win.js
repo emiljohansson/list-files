@@ -19,6 +19,10 @@ function makeCommandWin(argv) {
     }
     command = command.replace(/\//g, '\\');
     command += ' /b/s';
+    if (command.substring(0, 5) === 'dir \\') {
+        //fix for C:\... cases
+        command = command.substring(0, 4) + command.substring(5);
+    }
     return command;
 }
 
