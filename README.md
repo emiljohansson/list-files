@@ -40,4 +40,4 @@ Optional options. Possible options 'dir', 'name' and 'exclude'.
 
 ## License
 
-MIT © [Emil Johansson](http://emiljohansson.se)
+MIT © Emil Johansson
