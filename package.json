@@ -8,11 +8,7 @@
     "coverage": "node node_modules/istanbul/lib/cli.js cover test.js -x test.js",
     "coveralls": "npm run-script coverage && node node_modules/.bin/coveralls < coverage/lcov.info"
   },
-  "author": {
-    "name": "Emil Johansson",
-    "email": "emiljohansson.se@gmail.com>",
-    "url": "emiljohansson.se"
-  },
+  "author": "Emil Johansson",
   "keywords": [
     "files",
     "list",
